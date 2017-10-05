@@ -3,11 +3,11 @@ from datetime import timedelta
 
 from bot import data  # noqa: F401
 from lib.data import ChatCommandArgs
-from lib.helper.chat import feature, permission
+from lib.helper.chat import feature, permission_feature
 
 
 @feature('countdown')
-@permission('moderator')
+@permission_feature(('broadcaster', None), ('moderator', 'modcountdown'))
 async def commandCountdown(args: ChatCommandArgs) -> bool:
     """
     !countdown 1
